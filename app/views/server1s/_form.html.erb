@@ -1,0 +1,317 @@
+<script>
+
+  $(document).ready(function(){
+    $('#show_ips').hide();
+    $('#AddIP').click(function () {
+
+      $('#IP').append('<option>'+$('#src_ip_input').val()+'</option>');
+    });
+  });
+
+  $(document).ready(function(){
+    $('#AddRoute').click(function () {
+//      alert("adding route");
+
+
+
+//      alert ($('#IP').find(":selected").text());
+//      alert ($('#dest_server').find(":selected").text());
+//      alert ($('#dest_server1').find(":selected").text());
+
+
+      $('#IPRouting').append('<option>'+$('#IP').find(":selected").text().concat(", ", $('#dest_server1').find(":selected").text(), " (", $('#dest_server').find(":selected").text(), ")")+'</option>');
+    });
+  });
+
+
+  $(document).ready(function(){
+    $('#RemoveRoute').click(function () {
+      var action_list = document.getElementById("IPRouting");
+      // Remember selected items.
+      var is_selected = [];
+      for (var i = 0; i < action_list.options.length; ++i)
+      {
+        is_selected[i] = action_list.options[i].selected;
+      }
+      // Remove selected items.
+      i = action_list.options.length;
+      while (i--)
+      {
+        if (is_selected[i])
+        {
+          action_list.remove(i);
+        }
+      }
+    });
+  });
+
+
+
+  $(document).ready(function(){
+    $('#dest_server').change(function () {
+    //  alert ("dest server");
+//      alert ($('#dest_server').find(":selected").text());
+     // alert ($('#dest_server').find(":selected").val());
+
+      $.ajax({
+        type: 'POST',
+        url: '/server1s/test',
+
+//        data: {'start_date' : $("input[name='report[start_date]']").val(),
+//          'end_date' : $("input[name='report[end_date]']").val() },
+        data: {'destServ' : $('#dest_server').find(":selected").val()},
+        dataType: 'script',
+
+          success: function(data){
+
+          //data is whatever you RETURN from your controller.
+          //an array, string, object...something
+           // alert (data);
+//            alert ("success");
+//            alert ($('#show_ips').val());
+            $('#dest_server1').empty();
+            //var numbersString = show_ips;
+            var numbersArray = $('#show_ips').val().split(',');
+            $.each(numbersArray, function(index, value) {
+                value = value.replace(/\&quot/g, "");
+              value = value.replace(/\;/g, "");
+              value = value.replace(/\[/g, "");
+              value = value.replace(/\]/g, "");
+            //  alert (value);
+
+//              value = value.toString().replace(/[]/g, "");
+              //value = value.substring(1, value.length - 1);
+//              alert (value);
+
+//              value = value.replace(/^"(.*)"$/, '$1');
+            //  alert(index + ': ' + value);
+
+              $('#dest_server1').append('<option>'+value+'</option>');
+            });
+
+           // $('#dest_server1').append('<option>'+$('#show_ips').val()+'</option>');
+
+
+           // console.log(data);
+//            var r = $.parseJSON(data);
+
+
+
+            //            alert (data);
+        }
+      });
+
+    });
+  });
+
+
+
+
+  $(document).ready(function(){
+    $('#Submit').click(function () {
+//      alert ("select All");
+      $('#IP option').prop('selected', true);
+      $('#IPRouting option').prop('selected', true);
+
+//      $("#IP").attr("selected", "selected");
+//      $("#IPRouting").attr("selected", "selected");
+
+
+
+
+//      $("select[multiple] option").prop("selected", "selected");
+//      $('#IP option').prop('selected', true);
+//      $('#IP').append('<option>'+$('#src_ip_input').val()+'</option>');
+
+    });
+
+  });
+
+  $(document).ready(function(){
+    $('#RemoveIP').click(function () {
+      var action_list = document.getElementById("IP");
+  // Remember selected items.
+      var is_selected = [];
+      for (var i = 0; i < action_list.options.length; ++i)
+      {
+        is_selected[i] = action_list.options[i].selected;
+      }
+  // Remove selected items.
+      i = action_list.options.length;
+      while (i--)
+      {
+        if (is_selected[i])
+        {
+          action_list.remove(i);
+        }
+      }
+    });
+  });
+
+</script>
+<style>
+  table .serverTable td
+  {
+    background: rgba(0, 0, 0, 0) url("/assets/modalContentBg.jpg") repeat scroll 0 0;
+    border: 0px;
+  }
+
+</style>
+<div class="tabNavContentContainer">
+<%= form_for(@server1) do |f| %>
+  <% if @server1.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@server1.errors.count, "error") %> prohibited this server from being saved:</h2>
+
+      <ul>
+      <% @server1.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+      <div class="row-fluid inputContainer">
+    <p>
+      <%= f.label :server_name, "Server Name" %>
+      <%= f.text_field :server_name %>
+      <%= show_field_error(@server1, :server_name) %>
+    </p>
+</div>
+      <div class="row-fluid inputContainer">
+    <p>
+      <%= f.label :server_login, "Server Login" %>
+      <%= f.text_field :server_login %>
+      <%= show_field_error(@server1,:server_login) %>
+    </p>
+</div>
+      <div class="row-fluid inputContainer">
+    <p>
+      <%= f.label :server_password, "Server Password" %>
+      <%= f.text_field :server_password %>
+      <%= show_field_error(@server1,:server_password) %>
+    </p>
+        </div>
+      <div class="row-fluid inputContainer">
+    <p>
+      <%= f.label :protocols, "Protocols" %>
+      <%= f.text_field :protocols %>
+      <%= show_field_error(@server1, :protocols) %>
+    </p>
+</div>
+      <div class="row-fluid inputContainer">
+    <p>
+      <%= f.label :location, "Location" %>
+      <%= f.text_field :location %>
+      <%= show_field_error(@server1, :location) %>
+    </p>
+</div>
+      <div class="row-fluid inputContainer">
+        <p>
+          <%= f.label :src_ip_input, "IP Address" %>
+          <%= text_field_tag 'src_ip_input' %>
+          <%= button_tag "Add IP", :id => "AddIP", :type => "button" %>
+          <%= button_tag "Remove IP", :id => "RemoveIP", :type => "button" %>
+        </p>
+        </div>
+
+      <div class="row-fluid inputContainer">
+        <p>
+        <table align="left" class="serverTable">
+          <tr>
+          <td>
+            <table width="100%" class="serverTable">
+              <tr>
+                <td>
+
+                  <%= f.label :sourceips, "Source IPs" %><br/>
+                  <%= select_tag(:IP, options_for_select([]), {:multiple => true, size: 7, :style => "width:150px"}) %> 
+                </td>
+                <td>
+                  <%= f.label 'Servers' %><br/>
+                  <%= select_tag(:dest_server, options_for_select(@server_options), {:multiple => false, size:7, :style => "width:150px"}) %> 
+                </td>
+                <td>
+                  <%= f.label :ipsavailable, "Destination IPs" %><br/>
+                  <%= select_tag(:dest_server1, options_for_select([]), {:multiple => false, size:7, :style => "width:150px"}) %>
+                </td>
+              </tr>
+            </table>
+
+          </td>
+
+          <td>
+            <%= button_tag "Add Route", :id => "AddRoute", :type => "button" %>
+          </td>     </tr>
+          <!--select_tag(:IP, options_for_select([]), {:multiple => true, :style => "width:100px"}) -->
+          <!--&lt;!&ndash;show_field_error(@server1, :IP)&ndash;&gt;-->
+        </table>
+        </p>
+      </div>
+      <br/><br/><br/><br/><br/><br/><br/><br/>
+      <br/>
+
+      <div class="row-fluid inputContainer">
+    <p>
+    <table border="0" align="left" width="400px" class="serverTable">
+
+      <tr><td width="400px">
+        <table>
+          <tr><td align="left">
+        <%= f.label :sourceip, "Source IP"%>
+          <%= f.label :destinationip, "Destination IP (Server)"%>
+            </td>
+          <td></td></tr>
+          <tr><td>
+        <%= select_tag(:IPRouting, options_for_select([]), {:multiple => true, :style => "width:280px"}) %>
+</td>
+            <td>
+        <%= button_tag "Remove Route", :id => "RemoveRoute", :type => "button" %>
+          </td></tr>
+        </table>
+          </td>
+      </tr>
+    </table>
+    </p>
+</div>
+
+
+
+<br/><br/><br/><br/><br/><br/><br/><br/>
+      <br/>
+
+      <div class="row-fluid inputContainer">
+    <p>
+      <%= f.label :installation_dir, "Installation Directory" %>
+      <%= f.text_field :installation_dir %>
+      <%= show_field_error(@server1, :installation_dir) %>
+    </p>
+        </div>
+      <div class="row-fluid inputContainer">
+
+    <p>
+      <%= f.label :tool_dir, "Tool Directory" %>
+      <%= f.text_field :tool_dir %>
+      <%= show_field_error(@server1, :tool_dir) %>
+    </p>
+</div>
+      <div class="row-fluid inputContainer">
+    <p>
+      <%= f.label 'description' %>
+      <%= f.text_field :description %>
+      <%= show_field_error(@server1, :description) %>
+    </p>
+</div>
+      <div class="row-fluid inputContainer">
+        <div class="row-fluid inputContainer">
+          <%= f.submit 'SUBMIT', class: "odd_button" %>&nbsp;&nbsp;&nbsp; 
+          <%= f.submit 'CLEAR', class: "odd_button", :type => 'reset' %> 
+        </div>
+
+        <!--<p>-->
+       <!--f.submit 'Submit', :id => "Submit", class: "btn btn-primary" %>&nbsp;&nbsp;&nbsp; -->
+      <!--f.submit 'Clear Form', :type => 'reset', class: "btn btn-primary" %> -->
+    <!--</p>-->
+      </div>
+      <%= text_field_tag 'show_ips'%>
+<% end %>
+</div>

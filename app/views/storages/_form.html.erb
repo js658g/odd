@@ -1,0 +1,76 @@
+<style>
+  .projects_roles
+  {
+    margin: 11px 0px 0 0px;
+
+  }
+  .field_with_errors {
+  @extend .control-group;
+  @extend .error;
+
+    display: inline-block;
+  }
+
+</style>
+<div class="tabNavContentContainer">
+  <%= form_for(@storage) do |f| %>
+      <% if @storage.errors.any? %>
+          <div id="error_explanation">
+            <!--<h2><= pluralize(@storage.errors.count, "error") %> prohibited this storage from being saved:</h2>-->
+            <h3> Please check the following errors:</h3>
+            <!--<= pluralize(@users1.errors.count, "error") %>-->
+            <ul>
+              <% @storage.errors.full_messages.each do |msg| %>
+                  <li><%= msg %></li>
+              <% end %>
+            </ul>
+          </div>
+      <% end %>
+      <div class="row-fluid inputContainer">
+        <p>
+          <%= f.label :storage_id, "Storage Id" %>
+          <%= f.text_field :storage_id %>
+          <!--<= show_field_error(@storage, :storage_id) %>-->
+        </p>
+      </div>
+      <div class="row-fluid inputContainer">
+        <p>
+          <%= f.label :storage_type, "Storage Type" %>
+          <%= f.text_field :storage_type %>
+          <!--<= show_field_error(@storage, :storage_type) %>-->
+        </p>
+      </div>
+      <div class="row-fluid inputContainer">
+        <p>
+          <%= f.label :storage_name, "Storage Name" %>
+          <%= f.text_field :storage_name %>
+          <!--<= show_field_error(@storage, :storage_name) %>-->
+        </p>
+      </div>
+      <div class="row-fluid inputContainer">
+        <p>
+          <%= f.label :cloud_master, "Cloud Master" %>
+          <%= f.text_field :cloud_master %>
+          <%= show_field_error(@storage, :cloud_master) %>
+        </p>
+      </div>
+      <div class="row-fluid inputContainer">
+        <p>
+          <%= f.label :primary_repository, "Primary Repository" %>
+          <%= f.text_field :primary_repository %>
+          <%= show_field_error(@storage,:primary_repository) %>
+        </p>
+      </div>
+      <div class="row-fluid inputContainer">
+        <div class="row-fluid inputContainer">
+          <%= f.submit 'SUBMIT', class: "odd_button" %>&nbsp;&nbsp;&nbsp; 
+          <%= f.submit 'CLEAR', class: "odd_button", :type => 'reset' %> 
+        </div>
+
+        <!--<p>-->
+        <!--f.submit 'Submit', class: "btn btn-primary" %>&nbsp;&nbsp;&nbsp; -->
+        <!--f.submit 'Clear Form', :type => 'reset', class: "btn btn-primary" %> -->
+        <!--</p>-->
+      </div>
+  <% end %>
+</div>

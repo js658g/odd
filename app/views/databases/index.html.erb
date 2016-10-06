@@ -1,0 +1,45 @@
+<h1>Listing databases</h1>
+
+<table>
+  <tr>
+    <th>Database</th>
+    <th>Name</th>
+    <th>Jdbc url</th>
+    <th>Db type</th>
+    <th>Datacenter location</th>
+    <th>Server host</th>
+    <th>Server login</th>
+    <th>Server password</th>
+    <th>Db name</th>
+    <th>Db login</th>
+    <th>String</th>
+    <th>Db password</th>
+    <th></th>
+    <th></th>
+    <th></th>
+  </tr>
+
+<% @databases.each do |database| %>
+  <tr>
+    <td><%= database.database_id %></td>
+    <td><%= database.name %></td>
+    <td><%= database.JDBC_URL %></td>
+    <td><%= database.db_type %></td>
+    <td><%= database.datacenter_location %></td>
+    <td><%= database.server_host %></td>
+    <td><%= database.server_login %></td>
+    <td><%= database.server_password %></td>
+    <td><%= database.db_name %></td>
+    <td><%= database.db_login %></td>
+    <td><%= database.string %></td>
+    <td><%= database.db_password %></td>
+    <td><%= link_to 'Show', database %></td>
+    <td><%= link_to 'Edit', edit_database_path(database) %></td>
+    <td><%= link_to 'Destroy', database, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'New Database', new_database_path %>

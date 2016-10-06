@@ -1,0 +1,102 @@
+<!--<div class="login">-->
+  <!--<div id ="oddlogincontainer" class="container">  </div>-->
+
+      <!--<%= form_for(@user, :as => :user, :html => {:class => "simple_form login-form"}, :url => sign_in_path) do |f| %>-->
+
+      <!--<div class="content">-->
+        <!--<div class="logo"></div>-->
+        <!--<div class="divider"></div>-->
+        <!--<div class="inputs">-->
+          <!--<div class="input-container">-->
+            <!--<i class="icon-user"></i>-->
+
+     <!--         <%= f.text_field :username%> -->
+
+          <!--</div>-->
+
+            <!--<div class="input-container">-->
+              <!--<i class="icon-key"></i>-->
+
+              <!-- <%= f.text_field :password%> -->
+            <!--</div>-->
+
+
+
+        <!--</div>-->
+        <!--<div class="divider"></div>-->
+
+        <!--<div class="button-container">-->
+          <!--<div class="submit">-->
+
+            <!--<i class="icon-lock"></i>-->
+            <!--<%= f.submit 'Log In'%>-->
+
+          <!--&lt;!&ndash;</div>&ndash;&gt;-->
+
+
+
+
+
+        <!--</div>-->
+
+        <!--</div>-->
+
+
+      <!--</div>-->
+
+
+    <!--<%end%>-->
+
+
+
+
+<!--</div>-->
+  <!--<div id="copyrightInfo">-->
+
+    <!--<div id="copyrightText">-->
+      <!--Copyright &copy; 2013 NYSE Group, Inc., licensed to GoPivotal, Inc. by NYSE Market, Inc. (a wholly owned subsidiary of NYSE Group, Inc.).  All rights reserved.  <a href="javascript:onclick=showCopyrightText(true)">See Details</a><br/><br/>-->
+    <!--</div>-->
+
+  <!--</div>-->
+
+  <!--<div id="copyrightInfoDetailsContainer">-->
+
+    <!--<div id="copyrightInfoDetails">-->
+      <!--<div class="copyrightHeader">Copyright</div>-->
+      <!--Copyright &copy; 2013 NYSE Group, Inc., licensed to GoPivotal, Inc. by NYSE Market, Inc. (a wholly owned subsidiary of NYSE Group, Inc.).  All rights reserved.<br/><br/>-->
+      <!--GoPivotal, Inc. believes the information in this publication is accurate as of its publication date. The information is subject to change without notice. THE INFORMATION IN THIS PUBLICATION IS PROVIDED "AS IS." NEITHER GOPIVOTAL, INC. ("Pivotal") NOR ANY OF ITS LICENSORS MAKE ANY REPRESENTATIONS OR WARRANTIES OF ANY KIND WITH RESPECT TO THE INFORMATION IN THIS PUBLICATION, AND SPECIFICALLY DISCLAIM IMPLIED WARRANTIES OF MERCHANTABILITY OR FITNESS FOR A PARTICULAR PURPOSE.<br/><br/>-->
+      <!--Use, copying, and distribution of any software described in this publication requires an applicable software license.<br/><br/>-->
+      <!--All trademarks used herein are the property of Pivotal or their respective owners.<br/><br/>-->
+      <!--<%= link_to "CLOSE", "javascript:onclick=showCopyrightText(false)" %>-->
+    <!--</div>-->
+
+  <!--</div>-->
+
+
+
+
+
+
+
+<p>Sign In</p>
+<%= form_for @user, :as => :user, :url => sign_in_path do |f| %>
+    <p>
+      <%= f.label 'username or email:' %><br/>
+      <%= f.text_field :username %>
+    </p>
+    <p>
+      <%= f.label 'password:' %><br/>
+      <%= f.password_field :password %>
+    </p>
+    <p>
+      <%= f.check_box :remember_me %>
+      <%= f.label 'remember me' %>
+    </p>
+    <p>
+      <%= f.submit 'Sign In' %>&nbsp;&nbsp;&nbsp;
+      <%= f.submit 'Clear Form', :type => 'reset' %>
+    </p>
+    <p>
+      <%= link_to 'forgot your password?', :forgot_password %>
+    </p>
+<% end %>

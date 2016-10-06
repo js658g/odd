@@ -1,0 +1,45 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <b>Server name:</b>
+  <%= @server.server_name %>
+</p>
+
+<p>
+  <b>Installation dir:</b>
+  <%= @server.installation_dir %>
+</p>
+
+<p>
+  <b>Tool dir:</b>
+  <%= @server.tool_dir %>
+</p>
+
+<p>
+  <b>Protocols:</b>
+  <%= @server.protocols %>
+</p>
+
+<p>
+  <b>Location:</b>
+  <%= @server.location %>
+</p>
+
+<p>
+  <b>Server login:</b>
+  <%= @server.server_login %>
+</p>
+
+<p>
+  <b>Server password:</b>
+  <%= @server.server_password %>
+</p>
+
+<p>
+  <b>Description:</b>
+  <%= @server.description %>
+</p>
+
+
+<%= link_to 'Edit', edit_server_path(@server) %> |
+<%= link_to 'Back', servers_path %>

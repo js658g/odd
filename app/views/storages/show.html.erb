@@ -1,0 +1,30 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <b>Storage:</b>
+  <%= @storage.storage_id %>
+</p>
+
+<p>
+  <b>Storage name:</b>
+  <%= @storage.storage_name %>
+</p>
+
+<p>
+  <b>Storage Type:</b>
+  <%= @storage.storage_type %>
+</p>
+
+<p>
+  <b>Cloud Master:</b>
+  <%= @storage.cloud_master %>
+</p>
+
+<p>
+  <b>Primary Repository:</b>
+  <%= @storage.primary_repository %>
+</p>
+
+
+<%= link_to 'Edit', edit_storage_path(@storage) %> |
+<%= link_to 'Back', storages_path %>

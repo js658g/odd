@@ -1,0 +1,50 @@
+<B>Register Database</B>
+<%= form_for @database, :as => :database, :url => register_database_path do |f| %>
+
+    <p>
+      <%= f.label :service_id, "Service ID" %>
+      <%= f.text_field :service_id %>
+      <%= show_field_error(@database, :service_id) %>
+    </p>
+
+    <p>
+      <%= f.label :name, "Name" %>
+      <%= f.text_field :name %>
+      <%= show_field_error(@database,:name) %>
+    </p>
+
+    <p>
+      <%= f.label :server, "Server" %>
+      <%= select_tag(:server, options_for_select(@server_options), {:multiple => false}) %>
+
+    </p>
+    <p>
+      <%= f.label :type, "Type" %>
+      <%= f.text_field :type %>
+      <%= show_field_error(@database, :type) %>
+    </p>
+
+    <p>
+      <%= f.label :location, "Location" %>
+      <%= f.text_field :location %>
+      <%= show_field_error(@database, :location) %>
+    </p>
+
+    <p>
+      <%= f.label :server_login, "Server Login" %>
+      <%= f.text_field :server_login %>
+      <%= show_field_error(@database,:server_login) %>
+    </p>
+
+    <p>
+      <%= f.label :server_password, "Server Password" %>
+      <%= f.text_field :server_password %>
+      <%= show_field_error(@database,:server_password) %>
+    </p>
+
+
+    <p>
+      <%= f.submit 'Submit' %>&nbsp;&nbsp;&nbsp;
+      <%= f.submit 'Clear Form', :type => 'reset' %>
+    </p>
+<% end %>

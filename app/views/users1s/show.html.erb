@@ -1,0 +1,49 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <b>Username:</b>
+  <%= @users1.username %>
+</p>
+
+<p>
+  <b>Email:</b>
+  <%= @users1.email %>
+</p>
+
+
+<p>
+  <b>Phone:</b>
+  <%= @users1.phone %>
+</p>
+
+<p>
+  <b>Description:</b>
+  <%= @users1.description %>
+</p>
+
+<p>
+  <b>Is admin:</b>
+  <%= @users1.is_admin %>
+</p>
+
+<p>
+  <b>Projects - Roles :</b>
+  <% @users1.project_role_users1s.each do |g| %>
+      <%=  (Project.find(g.project_id)).project_name %>
+      -
+      <%= (Role.find(g.role_id)).role_name %> 
+
+      <%=  puts "VIEW: current project: #{(Project.find(g.project_id)).project_name}"  %>
+  <% end %>
+
+   <!--string = @users1.projects_assigned.split(",")%>-->
+   <!--string.each do |val| %>-->
+       <!--@project_options.each do |name, msg| %>-->
+          <!-- if val.scan(/\d/).join('').to_s == msg.to_s %>-->
+              <!--< name %>-->
+          <!-- end %>-->
+       <!--end %>-->
+      <!-- end %>-->
+</p>
+<%= link_to 'Edit', edit_users1_path(@users1) %> |
+<%= link_to 'Back', users1s_path %>

@@ -1,0 +1,13 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+one:
+  source_id: 1
+  source_ip: MyString
+  destination_id: 1
+  destination_ip: MyString
+
+two:
+  source_id: 1
+  source_ip: MyString
+  destination_id: 1
+  destination_ip: MyString

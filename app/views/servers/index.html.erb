@@ -1,0 +1,275 @@
+
+<link rel="stylesheet" href="//code.jquery.com/ui/1.11.4/themes/smoothness/jquery-ui.css">
+<script src="//code.jquery.com/jquery-1.10.2.js"></script>
+<script src="//code.jquery.com/ui/1.11.4/jquery-ui.js"></script>
+<link rel="stylesheet" href="/resources/demos/style.css">
+
+
+
+
+<script language="javascript" type="text/javascript">
+  function func2(id) {
+    $.ajax({
+      type: 'POST',
+      url: '/servers/test',
+      data: {info: id},
+      dataType: 'script',
+      success: function(data){
+        if($('#iproute').val() == "true") {
+          $('#dialog-message').html("IP Route Exists.");
+          $("#dialog-message").dialog({
+            resizable: true,
+            height: 150,
+            modal: true,
+            buttons: {
+              "Delete": function (event) {//POST TYEP JSON ACTUALLY SUCCESSFULLY COMES BACK TO ALERT SUCCESS.
+                $.ajax({
+                  type: 'POST',
+                    url: '/servers/'+id,
+                      data: {"_method": "delete"},
+                  dataType: 'script',
+                    success: function(data){
+                      alert ("deleted ");
+                    }
+                  });
+                $(this).dialog("close");
+                event.preventDefault;
+              },
+              Cancel: function () {
+                $(this).dialog("close");
+              }
+            }
+          });
+        }
+        if($('#iproute').val() == "false") {
+          $('#dialog-message').html("No IP route exists.");
+          $("#dialog-message").dialog({
+            resizable: true,
+            height: 150,
+            modal: true,
+            buttons: {
+              "Delete": function (event) {
+                $.ajax({
+                  type: 'POST',
+                  url: '/servers/'+id,
+                  data: {"_method": "delete"},
+                  dataType: 'script',
+                  success: function(data){
+                    alert ("deleted ");
+                  }
+                });
+                $(this).dialog("close");
+                event.preventDefault;
+              },
+              Cancel: function () {
+                $(this).dialog("close");
+              }
+            }
+          });
+        }
+      }
+    });
+  }
+</script>
+<script>
+  jQuery(function($) {
+    $("td[data-link]").click(function() {
+      window.location = this.dataset.link
+    });
+  })
+</script>
+
+<script>
+  $(document).ready(function(){
+    $('#show_ips').hide();
+    $('#iproute').hide();
+  });
+</script>
+<style>
+  .testcss{
+    font-size: 19px;
+
+  }
+  /***** TABLES *****/
+  table.userTable
+  {
+    width: 98%;
+    border: 1px solid #dddddd;
+    border-collapse:collapse;
+    border-spacing: 0;
+
+  }
+
+  table.userTable td
+  {
+    border: 1px solid #dddddd;
+    text-align: left;
+    padding: 5px 0 5px 0;
+  }
+
+  table.userTable td
+  {
+    font-size: 13px;
+    color: #101010;
+    font-weight: 500;
+    padding-left: 8px;
+    text-align: left;
+    /*background-color: #ffffff;*/
+  }
+  table.userTable tr th
+  {
+    /*cursor: pointer;*/
+    background: url('/assets/thBg2.jpg');
+    background-repeat: repeat-x;
+    height: 48px;
+    padding: 0 10px 0 10px;
+    margin: 0;
+    font-size: 14px;
+    font-weight: bold;
+    color: #4c4c4c;
+    line-height: 15px;
+    border: 1px solid #dddddd;
+  }
+  table.userTable th:hover
+  {
+    cursor: pointer;
+    color: #598d9a;
+  }
+  table.userTable tr:hover
+  {
+    cursor: pointer;
+    /*color: #DC143C;*/
+    /*color: #598d9a;*/
+    /*color: #DC143C;*/
+  }
+  .userTable tr.even td
+  {
+    background-color: #e2eef1;
+  }
+  .userTable tr.odd td
+  {
+    background-color: #ffffff;
+  }
+
+  .userTable tr.even1 td
+  {
+    background-color: #e2eef1;
+  }
+  .userTable tr.odd1 td
+  {
+    background-color: #ffffff;
+  }
+  /*.userTable tr.node td:hover works for one cell ie td*/
+  .userTable tr:hover td
+  {
+    /*font-size: 24px;*/
+    background-color:#fdfbec;
+  }
+
+  table.userTable tr:hover,
+  table.userTable tr.selected
+  {
+    cursor: pointer;
+    -webkit-transition: background linear 0.25s, box-shadow linear 0.2s;
+    -moz-transition: background linear 0.25s, box-shadow linear 0.2s;
+    -o-transition: background linear 0.25s, box-shadow linear 0.2s;
+  }
+  .tableContentCell
+  {
+    padding: 0;
+    margin: 0;
+  }
+  .tableContentBg
+  {
+    border: 4px solid #999999;
+  }
+  .anyContentBg
+  {
+    border-top: 3px solid #c9c9c9;
+    border-bottom: 1px solid #dddddd;
+    border-right: 1px solid #dddddd;
+    border-left: 1px solid #dddddd;
+  }
+  button,
+  input[type=button],
+  .odd_button
+  {
+    padding: 0 13px;
+    border: 1px solid #d3d3d3;
+    background: url('/assets/buttonBg.jpg');
+    background-repeat: repeat-x;
+    height: 28px;
+    color: #fff;
+    font-family: 'Roboto';
+    font-size: 12px;
+    font-weight: bold;
+    box-shadow: 1px 1px 7px #757575;
+
+  }
+  a
+  {
+    font-size: 12px;
+    display: inline-block;
+    color: #3781a8;
+    text-decoration: none;
+  }
+</style>
+
+
+<h1>Servers List</h1>
+<br/>
+<%= link_to new_server_path do %>
+    <div class="buttonGray expandAll">
+      <i class="icon-plus-sign-alt"></i>
+      New
+    </div>
+<% end %>
+
+
+<div id="relist">
+<table style="width:100%">
+  <tr>
+    <td width="94%">
+      <table style="width:100%" align="left" valign="top" border="0" class="userTable">
+        <tr>
+          <th>Server Name</th>
+          <th>Login</th>
+          <th>Password</th>
+          <th>Location</th>
+          <th>Description</th>
+          <th>Protocols</th>
+          <th>Installation Dir</th>
+          <th>Tool Dir</th>
+          <th>IPs</th>
+          <th></th>
+        </tr>
+
+<% @servers.each do |server| %>
+  <tr  class="node <%= cycle("odd", "even") -%>">
+    <td data-link="<%= edit_server_path(server) %>"><%= server.server_name %></td>
+    <td data-link="<%= edit_server_path(server) %>"><%= server.server_login %></td>
+    <td data-link="<%= edit_server_path(server) %>"><%= server.server_password %></td>
+    <td data-link="<%= edit_server_path(server) %>"><%= server.location %></td>
+    <td data-link="<%= edit_server_path(server) %>"><%= server.description %></td>
+    <td data-link="<%= edit_server_path(server) %>"><%= server.protocols %></td>
+    <td data-link="<%= edit_server_path(server) %>"><%= server.installation_dir %></td>
+    <td data-link="<%= edit_server_path(server) %>"><%= server.tool_dir %></td>
+    <td data-link="<%= edit_server_path(server) %>"><%= server.IP .delete('[]').tr("'\"", "")[0...29]+"..." %></td>
+    <td>
+      <i class="icon-minus-sign-alt"></i>
+      <%= button_to_function 'Delete', "func2(#{server.id})", {:class => 'odd_button'} %></td>
+        </tr>
+        <% end %>
+      </table>
+    </td>
+
+  </tr>
+</table>
+<%= text_field_tag 'show_ips'%>
+<%= text_field_tag 'iproute'%>
+<div id="dialog-message">
+
+</div>
+</div>
+
+

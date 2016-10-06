@@ -1,0 +1,156 @@
+<script>
+  function func() {
+    // code
+//    alert ("hi");
+    $('#projects_roles').append('<option>'+$('#projects_').find(":selected").text().concat(" - ", $('#roles_').find(":selected").text())+'</option>');
+  }
+
+  function rem() {
+    // code
+//    alert ("hi");
+    var action_list = document.getElementById("projects_roles");
+    // Remember selected items.
+    var is_selected = [];
+    for (var i = 0; i < action_list.options.length; ++i)
+    {
+      is_selected[i] = action_list.options[i].selected;
+    }
+    // Remove selected items.
+    i = action_list.options.length;
+    while (i--)
+    {
+      if (is_selected[i])
+      {
+        action_list.remove(i);
+      }
+    }
+  }
+  $(document).ready(function() {
+
+    $('#Submit').click(function () {
+      alert("submitting..");
+      $('#projects_roles option').prop('selected', true);
+    });
+  });
+  $(document).ready(function(){
+//    alert ('<%=@existing_projects_roles%>');
+//  arr = '<%=@existing_projects_roles%>';
+    <%@existing_projects_roles.each do |g| %>
+        $('#projects_roles').append('<option>'+'<%= Project.find(g.project_id).project_name %>'.concat(" - ", '<%= Role.find(g.role_id).role_name %>')+'</option>');
+    <% end %>
+  });
+
+</script>
+<div class="tableContentBg">
+  <div class="tabNavContainer">
+<h1>Edit User</h1>
+</div>
+  <div class="tabNavContentContainer">
+    <%= form_for @users1, :url => { :action => "update" } do |f| %>
+
+    <% if @users1.errors.any? %>
+        <div id="error_explanation">
+          <h2><%= pluralize(@users1.errors.count, "error") %> prohibited this users1 from being saved:</h2>
+
+          <ul>
+            <% @users1.errors.full_messages.each do |msg| %>
+                <li><%= msg %></li>
+            <% end %>
+          </ul>
+        </div>
+    <% end %>
+
+
+    <%=  puts "============view=========="  %>
+    <%=  puts "username: #{@users1.username}"  %>
+      <div class="row-fluid inputContainer">
+    <p> 
+      <%= f.label :username, "User Name"%> 
+      <%= f.text_field :username %> 
+      <%= show_field_error1(@users1, :username) %> 
+    </p> 
+        </div>
+      <div class="row-fluid inputContainer">
+    <p> 
+      <%= f.label :password, "Password" %> 
+      <%= f.password_field :password %> 
+      <%= show_field_error1(@users1, :password) %> 
+    </p> 
+</div>
+      <div class="row-fluid inputContainer">
+
+    <p>       <%= f.label :password_confirmation, "Password Confirmation" %> 
+      <%= f.password_field :password_confirmation %> 
+      <%= show_field_error1(@users1, :password_confirmation) %> 
+    </p>  
+        </div>
+      <div class="row-fluid inputContainer">
+    <p> 
+      <%= f.label :email, "Email" %> 
+      <%= f.text_field :email %> 
+      <%= show_field_error1(@users1, :email) %> 
+    </p>
+        </div>
+      <div class="row-fluid inputContainer"> 
+        <p> 
+  <%= f.label :phone, "Phone" %> 
+  <%= f.text_field :phone %> 
+  <%= show_field_error1(@users1, :phone) %> 
+</p>      </div>
+      <div class="row-fluid inputContainer">
+        <p> 
+  <%= f.label :description, "Description" %> 
+  <%= f.text_field :description %> 
+  <%= show_field_error1(@users1, :description) %> 
+</p> 
+        </div>
+      <div class="row-fluid inputContainer">
+        <p> 
+  <%= f.label :is_admin, "Grant Administrator Access"%> 
+  <%= f.check_box :is_admin %> 
+</p> 
+        </div>
+      <div class="row-fluid inputContainer">
+
+    <p>
+
+        <table border="1">
+          <tr>
+            <td>
+              <%= f.label "Projects and Roles" %> 
+              <%= select_tag "projects[]", options_from_collection_for_select( @projects, :id, :project_name), :style => "width:120px; height:135px",
+                             :multiple => true %>
+
+            </td>
+            <td>
+              <%= select_tag "roles[]", options_from_collection_for_select( @roles, :id, :role_name), :style => "width:120px; height:135px",
+                             :multiple => true %>
+            </td>
+            <td>
+
+              <%= button_to_function 'Add', "func()"%>
+            </td>
+            <td>
+              <%= select_tag(:projects_roles, options_for_select([]), {:multiple => true, :style => "width:200px; height:136px"}) %>
+            </td>
+            <td>
+              <%= button_to_function 'Remove', "rem()"%>
+            </td>
+          </tr>
+        </table>
+
+    </p> 
+</div>
+
+      <div class="row-fluid inputContainer">
+        <div class="row-fluid inputContainer">
+          <%= f.submit 'SUBMIT', class: "odd_button", :id => "Submit" %>&nbsp;&nbsp;&nbsp; 
+          <%= f.submit 'CLEAR', class: "odd_button", :type => 'reset' %> 
+        </div>
+</div>
+
+<% end %>
+    </div>
+</div>
+<%= link_to 'Back', users1s_path %>
+

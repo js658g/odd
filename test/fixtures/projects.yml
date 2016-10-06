@@ -1,0 +1,11 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+one:
+  project_name: MyString
+  project_description: MyString
+  reusable: false
+
+two:
+  project_name: MyString
+  project_description: MyString
+  reusable: false

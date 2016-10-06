@@ -1,0 +1,28 @@
+<B>Project Details</B>
+<%= form_for @project, :as => :project, :url => new_project_path do |f| %>
+    <p>
+      <%= f.label :project_name, "Project Name" %>
+      <%= f.text_field :project_name %>
+      <%= show_field_error(@project, :project_name) %>
+    </p>
+    <p>
+      <%= f.label 'description' %>
+      <%= f.text_field :project_description %>
+      <%= show_field_error(@project, :project_description) %>
+    </p>
+
+    <p>
+      <%= f.label 'last_updated_by' %>
+      <%= f.text_field :last_updated_by %>
+      <%= show_field_error(@project, :last_updated_by) %>
+    </p>
+    <p>
+      <%= f.label 'last_updated_timestamp' %>
+      <%= f.text_field :last_updated_timestamp %>
+      <%= show_field_error(@project, :last_updated_timestamp) %>
+    </p>
+    <p>
+      <%= f.submit 'Submit' %>&nbsp;&nbsp;&nbsp;
+      <%= f.submit 'Clear Form', :type => 'reset' %>
+    </p>
+<% end %>

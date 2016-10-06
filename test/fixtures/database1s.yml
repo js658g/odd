@@ -1,0 +1,19 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+one:
+  service_id: MyString
+  name: MyString
+  server: MyString
+  db_type: MyString
+  location: MyString
+  server_login: MyString
+  server_password: MyString
+
+two:
+  service_id: MyString
+  name: MyString
+  server: MyString
+  db_type: MyString
+  location: MyString
+  server_login: MyString
+  server_password: MyString

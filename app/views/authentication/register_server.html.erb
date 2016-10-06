@@ -1,0 +1,61 @@
+<B>Register Server</B>
+<%= form_for @server, :as => :server, :url => register_server_path do |f| %>
+
+    <p>
+      <%= f.label :server_name, "Server Name" %>
+      <%= f.text_field :server_name %>
+      <%= show_field_error(@server, :server_name) %>
+    </p>
+
+    <p>
+      <%= f.label :server_login, "Server Login" %>
+      <%= f.text_field :server_login %>
+      <%= show_field_error(@server,:server_login) %>
+    </p>
+
+    <p>
+      <%= f.label :server_password, "Server Password" %>
+      <%= f.text_field :server_password %>
+      <%= show_field_error(@server,:server_password) %>
+    </p>
+    <p>
+      <%= f.label :protocols, "Protocols" %>
+      <%= f.text_field :protocols %>
+      <%= show_field_error(@server, :protocols) %>
+    </p>
+
+    <p>
+      <%= f.label :location, "Location" %>
+      <%= f.text_field :location %>
+      <%= show_field_error(@server, :location) %>
+    </p>
+
+    <p>
+      <%= f.label :IP, "IP Address" %>
+      <%= f.text_field :IP %>
+      <%= show_field_error(@server, :IP) %>
+    </p>
+
+    <p>
+      <%= f.label :installation_dir, "Installation Directory" %>
+      <%= f.text_field :installation_dir %>
+      <%= show_field_error(@server, :installation_dir) %>
+    </p>
+
+    <p>
+      <%= f.label :tool_dir, "Tool Directory" %>
+      <%= f.text_field :tool_dir %>
+      <%= show_field_error(@server, :tool_dir) %>
+    </p>
+
+    <p>
+      <%= f.label 'description' %>
+      <%= f.text_field :description %>
+      <%= show_field_error(@server, :description) %>
+    </p>
+
+    <p>
+      <%= f.submit 'Submit' %>&nbsp;&nbsp;&nbsp;
+      <%= f.submit 'Clear Form', :type => 'reset' %>
+    </p>
+<% end %>

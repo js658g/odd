@@ -1,0 +1,65 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <b>Database:</b>
+  <%= @database.database_id %>
+</p>
+
+<p>
+  <b>Name:</b>
+  <%= @database.name %>
+</p>
+
+<p>
+  <b>Jdbc url:</b>
+  <%= @database.JDBC_URL %>
+</p>
+
+<p>
+  <b>Db type:</b>
+  <%= @database.db_type %>
+</p>
+
+<p>
+  <b>Datacenter location:</b>
+  <%= @database.datacenter_location %>
+</p>
+
+<p>
+  <b>Server host:</b>
+  <%= @database.server_host %>
+</p>
+
+<p>
+  <b>Server login:</b>
+  <%= @database.server_login %>
+</p>
+
+<p>
+  <b>Server password:</b>
+  <%= @database.server_password %>
+</p>
+
+<p>
+  <b>Db name:</b>
+  <%= @database.db_name %>
+</p>
+
+<p>
+  <b>Db login:</b>
+  <%= @database.db_login %>
+</p>
+
+<p>
+  <b>String:</b>
+  <%= @database.string %>
+</p>
+
+<p>
+  <b>Db password:</b>
+  <%= @database.db_password %>
+</p>
+
+
+<%= link_to 'Edit', edit_database_path(@database) %> |
+<%= link_to 'Back', databases_path %>

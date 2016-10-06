@@ -1,0 +1,28 @@
+<B>Role Details</B>
+<%= form_for @role, :as => :role, :url => new_role_path do |f| %>
+    <p>
+
+      <%= f.label :role_name, "Role Name" %>
+      <%= f.text_field :role_name %>
+      <%= show_field_error(@role, :role_name) %>
+    </p>
+    <p>
+      <%= f.label 'description' %>
+      <%= f.text_field :role_description %>
+      <%= show_field_error(@role, :role_description) %>
+    </p>
+
+    <p>
+      <%= f.label 'last_updated_by' %>
+      <%= f.text_field :last_updated_by %>
+      <%= show_field_error(@role, :last_updated_by) %>
+    </p>
+    <p>
+      <%= f.label 'Available Privileges' %>
+      <%= select_tag(:assigned_privileges_id, options_for_select(@privilege_options), {:multiple => true, size:7}) %>
+    </p>
+    <p>
+      <%= f.submit 'Submit' %>&nbsp;&nbsp;&nbsp;
+      <%= f.submit 'Clear Form', :type => 'reset' %>
+    </p>
+<% end %>

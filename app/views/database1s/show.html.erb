@@ -1,0 +1,69 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <b>Service:</b>
+  <%= @database1.service_id %>
+</p>
+
+<p>
+  <b>Name:</b>
+  <%= @database1.name %>
+</p>
+
+<p>
+  <b>Server:</b>
+   <% @server_options.each do |name, msg| %> 
+
+      <% if (@database1.server.scan(/\d/).join('')).to_s == msg.to_s%>
+          <%=  name  %>
+      <% end %>
+       <% end %>
+</p>
+
+<p>
+  <b>Type:</b>
+  <%= @database1.db_type %>
+</p>
+<p>
+  <b>Database:</b>
+  <%= @database1.database %>
+</p>
+
+<p>
+  <b>Host:</b>
+  <%= @database1.host %>
+</p>
+
+<p>
+  <b>Port:</b>
+  <%= @database1.port %>
+</p>
+
+<p>
+  <b>Username:</b>
+  <%= @database1.username %>
+</p>
+
+<p>
+  <b>Password:</b>
+  <%= @database1.password %>
+</p>
+
+<p>
+  <b>Location:</b>
+  <%= @database1.location %>
+</p>
+
+<p>
+  <b>Server Login:</b>
+  <%= @database1.server_login %>
+</p>
+
+<p>
+  <b>Server Password:</b>
+  <%= @database1.server_password %>
+</p>
+
+
+<%= link_to 'Edit', edit_database1_path(@database1) %> |
+<%= link_to 'Back', database1s_path %>

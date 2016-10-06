@@ -1,0 +1,206 @@
+<script>
+  jQuery(function($) {
+    $("tr[data-link]").click(function() {
+      window.location = this.dataset.link
+    });
+  })
+
+
+</script>
+<style>
+  .testcss{
+    font-size: 19px;
+
+  }
+
+  /*tr:hover {*/
+  /*cursor: pointer;*/
+
+  /*!* whatever other hover styles you want *!*/
+  /*}*/
+
+  /***** TABLES *****/
+  table.userTable
+  {
+    width: 98%;
+    border: 1px solid #dddddd;
+    border-collapse:collapse;
+    border-spacing: 0;
+
+  }
+
+  table.userTable td
+  {
+    border: 1px solid #dddddd;
+    text-align: left;
+    padding: 5px 0 5px 0;
+  }
+
+  table.userTable td
+  {
+    font-size: 13px;
+    color: #101010;
+    font-weight: 500;
+    padding-left: 8px;
+    text-align: left;
+    /*background-color: #ffffff;*/
+  }
+  table.userTable tr th
+  {
+    /*cursor: pointer;*/
+    background: url('/assets/thBg2.jpg');
+    background-repeat: repeat-x;
+    height: 48px;
+    padding: 0 10px 0 10px;
+    margin: 0;
+    font-size: 14px;
+    font-weight: bold;
+    color: #4c4c4c;
+    line-height: 15px;
+    border: 1px solid #dddddd;
+  }
+  table.userTable th:hover
+  {
+    cursor: pointer;
+    color: #598d9a;
+  }
+  table.userTable tr:hover
+  {
+    cursor: pointer;
+    /*color: #DC143C;*/
+    /*color: #598d9a;*/
+    /*color: #DC143C;*/
+  }
+  .userTable tr.even td
+  {
+    background-color: #e2eef1;
+  }
+  .userTable tr.odd td
+  {
+    background-color: #ffffff;
+  }
+
+  .userTable tr.even1 td
+  {
+    background-color: #e2eef1;
+  }
+  .userTable tr.odd1 td
+  {
+    background-color: #ffffff;
+  }
+  /*.userTable tr.node td:hover works for one cell ie td*/
+  .userTable tr:hover td
+  {
+    /*font-size: 24px;*/
+    background-color:#fdfbec;
+  }
+
+  table.userTable tr:hover,
+  table.userTable tr.selected
+  {
+    cursor: pointer;
+    -webkit-transition: background linear 0.25s, box-shadow linear 0.2s;
+    -moz-transition: background linear 0.25s, box-shadow linear 0.2s;
+    -o-transition: background linear 0.25s, box-shadow linear 0.2s;
+  }
+  .tableContentCell
+  {
+    padding: 0;
+    margin: 0;
+  }
+  .tableContentBg
+  {
+    border: 4px solid #999999;
+  }
+  .anyContentBg
+  {
+    border-top: 3px solid #c9c9c9;
+    border-bottom: 1px solid #dddddd;
+    border-right: 1px solid #dddddd;
+    border-left: 1px solid #dddddd;
+  }
+  a
+  {
+    font-size: 12px;
+    display: inline-block;
+    color: #3781a8;
+    text-decoration: none;
+  }
+
+</style>
+
+<h1>Database List</h1>
+<br/>
+<%= link_to new_database1_path do %>
+    <div class="buttonGray expandAll">
+      <i class="icon-plus-sign-alt"></i>
+      New
+    </div>
+<% end %>
+
+<table style="width:100%">
+  <tr>
+    <td width="94%">
+      <table style="width:100%" align="left" valign="top" border="0" class="userTable">
+        <tr>
+    <th>Service</th>
+    <th>Name</th>
+    <th>Server</th>
+    <th>Type</th>
+    <th>Database</th>
+    <th>Host</th>
+    <th>Post</th>
+    <th>Username</th>
+    <th>Password</th>
+    <th>Location</th>
+    <th>Server Login</th>
+    <th>Server Password</th>
+  </tr>
+
+<% @database1s.each do |database1| %>
+           <tr class="node <%= cycle("odd", "even") -%>">
+      <!--<tr data-link=" <edit_database1_path(database1) %>" class="node < cycle("odd", "even") -%>">-->
+    <td data-link="<%= edit_database1_path(database1) %>"><%= database1.service_id %></td>
+             <td data-link="<%= edit_database1_path(database1) %>"><%= database1.name %></td>
+             <td data-link="<%= edit_database1_path(database1) %>">   <% @server_options.each do |name, msg| %> 
+
+          <% if (database1.server.scan(/\d/).join('')).to_s == msg.to_s%>
+              <%=  name  %>
+          <% end %>
+           <% end %>
+    </td>
+             <td data-link="<%= edit_database1_path(database1) %>"><%= database1.db_type %></td>
+             <td data-link="<%= edit_database1_path(database1) %>"><%= database1.database %></td>
+             <td data-link="<%= edit_database1_path(database1) %>"><%= database1.host %></td>
+             <td data-link="<%= edit_database1_path(database1) %>"><%= database1.port %></td>
+             <td data-link="<%= edit_database1_path(database1) %>"><%= database1.username %></td>
+             <td data-link="<%= edit_database1_path(database1) %>"><%= database1.password %></td>
+             <td data-link="<%= edit_database1_path(database1) %>"><%= database1.location %></td>
+             <td data-link="<%= edit_database1_path(database1) %>"><%= database1.server_login %></td>
+             <td data-link="<%= edit_database1_path(database1) %>"><%= database1.server_password %></td>
+      </tr>
+        <% end %>
+      </table>
+    </td>
+    <td width="6%">
+      <table style="width:100%" style="height: 100%;" align="left" valign="top" border="0" class="userTable">
+        <tr>
+          <th></th>
+        </tr>
+
+        <% @database1s.each do |database1| %>
+            <tr class="node <%= cycle("odd1", "even1") -%>">
+
+              <td>
+                <i class="icon-minus-sign-alt"></i>
+                <%=link_to 'Delete', database1, method: :delete, data: { confirm: 'Are you sure?' } %>
+              </td>
+            </tr>
+
+        <% end %>
+      </table>
+    </td>
+  </tr>
+</table>
+
+

@@ -1,0 +1,104 @@
+<!--<div class="login">-->
+
+    <!--<div id="oddlogincontainer" class="container"> </div>-->
+    <!--<div class="content">-->
+                  <!--<div class="logo"></div>-->
+
+                  <!--<div class="divider"></div>-->
+
+                <!--<div class="inputs">-->
+<B>User Details</B>
+<%= form_for @user, :as => :user, :url => new_user_path do |f| %>
+<!--<p>Sign Up</p>-->
+
+    <p>
+      <%= f.label :username, "User Name"%>
+      <%= f.text_field :username %>
+      <%= show_field_error(@user, :username) %>
+    </p>
+    <p>
+      <%= f.label :password, "Password" %>
+      <%= f.password_field :password %>
+      <%= show_field_error(@user, :password) %>
+    </p>
+    <p>
+      <%= f.label :password_confirmation, "Password Confirmation" %>
+      <%= f.password_field :password_confirmation %>
+      <%= show_field_error(@user, :password_confirmation) %>
+    </p>
+
+    <p>
+      <%= f.label :email, "Email" %>
+      <%= f.text_field :email %>
+      <%= show_field_error(@user, :email) %>
+    </p>
+    <p>
+      <%= f.label :phone, "Phone" %>
+      <%= f.text_field :phone %>
+      <%= show_field_error(@user, :phone) %>
+    </p>
+
+    <p>
+      <%= f.label :description, "Description" %>
+      <%= f.text_field :description %>
+      <%= show_field_error(@user, :description) %>
+    </p>
+    <p>
+      <%= f.label :is_admin, "Grant Administrator Access"%>
+      <%= f.check_box :is_admin %>
+    </p>
+
+
+
+    <p>
+      <%= f.label 'Project Role Information:' %>
+       <!--select_tag(:projects_assigned, options_for_select(@project_options), {:multiple => false}) %>-->
+      <!--select_tag(:roles_assigned, options_for_select(@role_options), {:multiple => false}) %>-->
+    </p>
+
+
+    <p class="submitBtn">
+      <%= f.submit 'Submit'%>&nbsp;&nbsp;&nbsp;
+      <%= f.submit 'Clear Form', :type => 'reset'%>
+    </p>
+<table width="100%">
+  <th>User</th>
+  <th>Email</th>
+  <th>Admin</th>
+  <th>Phone</th>
+  <th>Projects</th>
+  <th>Roles</th>
+
+
+<% @user_list.each do |user| %>
+    <tr>
+      <td><%=link_to  user.username %></td>
+      <td><%=  user.email %></td>
+      <td><%=  user.is_admin %></td>
+      <td><%=  user.phone %></td>
+      <!--<td>  user.projects_assigned %></td>-->
+      <!--<td>  user.roles_assigned%></td>-->
+
+    </tr>
+<% end %>
+
+</table>
+
+<% end %>
+                <!--</div>-->
+                          <!--<div class="divider"></div>-->
+
+                            <!--<div class="button-container">-->
+                              <!--<button class="submit" type="submit">-->
+                                <!--<i class="icon-lock"></i>-->
+                                <!--<div class="copy">Log In</div></button>-->
+                            <!--</div>-->
+
+
+
+
+
+    <!--</div>-->
+
+<!--</div>-->
+

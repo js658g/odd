@@ -1,0 +1,61 @@
+<%= form_for(@database) do |f| %>
+  <% if @database.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@database.errors.count, "error") %> prohibited this database from being saved:</h2>
+
+      <ul>
+      <% @database.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :database_id %><br />
+    <%= f.text_field :database_id %>
+  </div>
+  <div class="field">
+    <%= f.label :name %><br />
+    <%= f.text_field :name %>
+  </div>
+  <div class="field">
+    <%= f.label :JDBC_URL %><br />
+    <%= f.text_field :JDBC_URL %>
+  </div>
+  <div class="field">
+    <%= f.label :db_type %><br />
+    <%= f.text_field :db_type %>
+  </div>
+  <div class="field">
+    <%= f.label :datacenter_location %><br />
+    <%= f.text_field :datacenter_location %>
+  </div>
+  <div class="field">
+    <%= f.label :server_host %><br />
+    <%= f.text_field :server_host %>
+  </div>
+  <div class="field">
+    <%= f.label :server_login %><br />
+    <%= f.text_field :server_login %>
+  </div>
+  <div class="field">
+    <%= f.label :server_password %><br />
+    <%= f.text_field :server_password %>
+  </div>
+  <div class="field">
+    <%= f.label :db_name %><br />
+    <%= f.text_field :db_name %>
+  </div>
+  <div class="field">
+    <%= f.label :db_login %><br />
+    <%= f.text_field :db_login %>
+  </div>
+  <div class="field">
+    <%= f.label :db_password %><br />
+    <%= f.text_field :db_password %>
+  </div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

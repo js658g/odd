@@ -1,0 +1,21 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+one:
+  server_name: MyString
+  installation_dir: MyString
+  tool_dir: MyString
+  protocols: MyString
+  location: MyString
+  server_login: MyString
+  server_password: MyString
+  description: MyString
+
+two:
+  server_name: MyString
+  installation_dir: MyString
+  tool_dir: MyString
+  protocols: MyString
+  location: MyString
+  server_login: MyString
+  server_password: MyString
+  description: MyString

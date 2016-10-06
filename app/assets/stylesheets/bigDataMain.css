@@ -1,0 +1,1318 @@
+html, body 
+{
+	background-color:transparent;
+}
+
+
+/******************************************/
+/* SCROLLBARS                             */
+/******************************************/
+body
+{
+	font-family: 'Roboto', sans-serif;
+	font-size: 8pt;
+	color: #7d7d7d;
+	
+	scrollbar-face-color: transparent;
+    scrollbar-shadow-color: transparent;
+    scrollbar-highlight-color:transparent;
+    scrollbar-3dlight-color: transparent;
+    scrollbar-darkshadow-color: transparent;
+   	scrollbar-track-color: red;
+    scrollbar-arrow-color: red;
+}
+
+::-webkit-scrollbar{width:7px;height:7px;}
+::-webkit-scrollbar-button:start:decrement,#doc ::-webkit-scrollbar-button:end:increment{display:block;height:0;width:0;background-color:transparent;}
+::-webkit-scrollbar-track-piece{background-color:transparent;-webkit-border-radius:0;-webkit-border-bottom-right-radius:8px;-webkit-border-bottom-left-radius:8px;}
+::-webkit-scrollbar-thumb:vertical{height:50px;background-color:#393939;-webkit-border-radius:8px;border:none;}
+::-webkit-scrollbar-thumb:horizontal{width:50px;background-color:#393939;-webkit-border-radius:8px;border:none;}
+::-webkit-scrollbar-corner {background-color:transparent;}
+
+/*@font-face
+{
+	font-family: BariolRegular;
+	src: url('fonts/Bariol_Regular.otf');
+}*/
+
+iframe
+{
+	border: none;
+}
+
+
+
+/******************************************/
+/* MAIN CONTAINERS                        */
+/******************************************/
+#mainBody
+{
+	background: #000000;
+}
+
+#mainContainer
+{	
+	background: #090909;
+}
+
+#mainNavContainer
+{
+	background-color: #181818;
+}
+
+#mainAlertsContainer
+{
+	background-color: #181818;
+}
+
+#mainContentContainer
+{	
+    background-color: #191919;
+}
+
+#mainContentContainer .row
+{
+	background-color: #000000;
+}
+
+#mainContentContainer .loginRow
+{
+	background-image: url('../../assets/images/gradientGrayBlack2.jpg');
+	background-repeat: repeat-x;
+}
+
+#mainContentContainer .cellLeft
+{
+	background-image: url('../../assets/images/gradientGrayBlack2.jpg');
+	background-repeat: repeat-x;
+	background-color: #090909;
+	border-right: 2px solid #000000;
+	border-bottom: 2px solid #000000;
+}
+
+#mainContentContainer .cellLeftLong
+{
+	background-image: url('../../assets/images/gradientGrayBlack2.jpg');
+	background-repeat: repeat-x;
+	background-color: #090909;
+	border-right: 2px solid #000000;
+	border-bottom: 2px solid #000000;
+}
+
+#mainContentContainer .cellLeftOps
+{
+	background-image: url('../../assets/images/gradientGrayBlack2.jpg');
+	background-repeat: repeat-x;
+	background-color: #090909;
+	border-right: 2px solid #000000;
+	border-bottom: 2px solid #000000;
+}
+
+#mainContentContainer .cellRight
+{
+	background-image: url('../../assets/images/gradientGrayBlack2.jpg');
+	background-repeat: repeat-x;
+	background-color: #090909;
+	border-bottom: 2px solid #000000;
+}
+
+#mainContentContainer .cellRightLong
+{
+	background-image: url('../../assets/images/gradientGrayBlack2.jpg');
+	background-repeat: repeat-x;
+	background-color: #090909;
+	border-bottom: 2px solid #000000;
+}
+
+#mainContentContainer .cellRightOps
+{
+	background-image: url('../../assets/images/gradientGrayBlack2.jpg');
+	background-repeat: repeat-x;
+	background-color: #090909;
+	border-bottom: 2px solid #000000;
+}
+
+.contentSeparatorHorizontal
+{
+	background-color: #000000;
+}
+
+.rowDetail
+{
+	border-bottom: 2px solid #000000;
+}
+
+
+
+
+/******************************************/
+/* MAIN NAV CONTAINER CONTENT             */
+/******************************************/
+#logoNYSE
+{
+	width: 101px;
+	height: 32px;
+	background-image: url('../../assets/images/logoNYSEEuronext.gif');	
+}
+
+#logoODDDashboard
+{
+	width: 125px;
+	height: 17px;
+	background-image: url('../../assets/images/logoODDDashboard.gif');	
+	cursor: pointer;
+}
+
+#navMonitoring
+{
+	width: 101px;
+	height: 67px;
+	background-image: url('../../assets/images/navMonitoring.gif');
+}
+
+#navSystemAdmin
+{
+	width: 103px;
+	height: 67px;
+	background-image: url('../../assets/images/navSystemAdmin.gif');
+}
+
+#navODWorkflow
+{
+	width: 106px;
+	height: 67px;
+	background-image: url('../../assets/images/navODWorkflow.gif');
+}
+
+#navDataAdmin
+{
+	width: 89px;
+	height: 67px;
+	background-image: url('../../assets/images/navDataAdmin.gif');	
+}
+
+#navReporting
+{
+	width: 86px;
+	height: 67px;
+	background-image: url('../../assets/images/navReporting.gif');
+}
+
+.navSelected
+{
+	opacity: 1;
+	filter: alpha(opacity=100); /* For IE8 and earlier */
+	font-family: 'Roboto', Sans-Serif;
+	color: #ffffff;
+	cursor: pointer;
+}
+
+.navDeselected
+{
+	opacity: 0.50;
+	filter: alpha(opacity=50); /* For IE8 and earlier */
+	font-family: 'Roboto', Sans-Serif;
+	color: #ffffff;
+	cursor: pointer;
+}
+
+.navInactive
+{
+	opacity: 0.15;
+	filter: alpha(opacity=15); /* For IE8 and earlier */
+	font-family: 'Roboto', Sans-Serif;
+	color: #ffffff;	
+}
+
+.navLabelContainer
+{
+
+}
+
+.navLabelContainer:hover
+{
+	font-family: 'Roboto', Sans-Serif;
+	color: #ffffff;
+	height: 67px;
+	
+}
+
+/*#navGreeting
+{
+	width: 228px;
+	height: 72px;
+	background-image: url('../../assets/images/navGreeting.gif');	
+}*/
+
+
+
+
+/******************************************/
+/* HEADER STYLES                         */
+/******************************************/
+h1
+{
+	font-family: 'Roboto', sans-serif;
+	color: #e2cbac;
+	font-size: 20px;
+	font-weight: normal;
+	margin: 0;
+	padding: 17px 0 0 12px;
+}
+
+h2
+{
+	font-family: 'Roboto', sans-serif;
+	color: #ead1a0;
+	font-size: 18px;
+	font-weight: normal;
+	margin: 0;
+}
+
+h3
+{
+	font-family: 'Roboto', sans-serif;
+	color: #ead1a0;
+	font-size: 14px;
+	font-weight: normal;
+	margin: 0;
+}
+
+.lineSeparator
+{
+	height: 1px;
+	background-color: #ffffff;
+	margin: 17px 12px 0 12px;
+	padding: 0;
+	opacity: .20;
+	filter: alpha(opacity=20); /* For IE8 and earlier */
+}
+
+
+
+
+ 
+/******************************************/
+/* GENERAL STYLES                         */
+/******************************************/
+a
+{
+	font-family: 'Roboto', sans-serif;
+	color: #32a5b9;
+	font-size: 11px;
+	font-weight: bold;
+	text-decoration: none;
+}
+
+a:hover, a:active
+{
+	font-family: 'Roboto', sans-serif;
+	color: #5dc3d5;
+	font-size: 11px;
+	font-weight: bold;
+	text-decoration: none;
+}
+
+.h1NoPadding
+{
+	padding: 0 0 0 20px;
+}
+
+input, textarea 
+{
+	@include transition(all 0.30s ease-in-out);
+	outline: none;
+	border: 1px solid #2e2e2e;
+	background-color: #191919;
+	width: 70px;
+	height: 16px;
+	font-family: 'Roboto', sans-serif;
+	color: #ffffff;
+	font-size: 11px;
+	font-weight: normal;
+	text-decoration: none;
+	margin: 0;
+	padding: 0 4px 2px 4px;
+}
+
+input:focus, textarea:focus 
+{
+	@include box-shadow(0 0 5px rgba(81, 203, 238, 1));
+	border: 1px solid #2e8fa0;
+}
+
+label, span
+{
+	font-family: 'Roboto', sans-serif;
+	color: #7d7d7d;
+	font-size: 12px;
+	font-weight: normal;
+	text-decoration: none;
+}
+
+.label
+{
+	width: 200px;
+	font-family: 'Roboto', sans-serif;
+	color: #7d7d7d;
+	font-size: 12px;
+	font-weight: bold;
+}
+
+.labelValue
+{
+	font-family: 'Roboto', sans-serif;
+	color: #ffffff;
+	font-size: 12px;
+	font-weight: normal;
+}
+
+.labelWide
+{
+	width: 275px;
+	font-family: 'Roboto', sans-serif;
+	color: #7d7d7d;
+	font-size: 12px;
+	font-weight: bold;
+}
+
+.labelValueContainerFirst
+{
+	padding: 10px 5px 0 20px;
+}
+
+.labelValueContainer
+{
+	padding: 0 5px 0 20px;
+}
+
+.labelValueContainerLast
+{
+	padding: 0 5px 10px 20px;
+}
+
+
+
+
+
+/******************************************/
+/* LOGIN STYLES                           */
+/******************************************/
+.loginContainer {
+	width: 335px;			/*Width of main container*/
+	margin-top: 50px;
+	margin-left: auto;
+	margin-right: auto;
+}
+
+.rounded_colhead
+{
+	color: white;
+	border: 1px solid #484848;
+	-webkit-border-radius: 0;    /* for Safari */
+	-moz-border-radius: 0;       /* for Firefox */
+}
+
+.loginSection {
+	width: 335px;
+}
+
+.loginInputLabel
+{
+	float: left;
+	width: 75px;
+	font-family: 'Roboto', sans-serif;
+	color: #7d7d7d;
+	font-size: 13px;
+	font-weight: bold;
+	margin: 0;
+	padding: 2px 0 0 0;
+}
+
+.loginInputContainer
+{
+	float: left;
+}
+
+.loginInput
+{
+	@include transition(all 0.30s ease-in-out);
+	outline: none;
+	border: 1px solid #2e2e2e;
+	background-color: #191919;
+	width: 150px;
+	height: 22px;
+	font-family: 'Roboto', sans-serif;
+	color: #ffffff;
+	font-size: 13px;
+	font-weight: normal;
+	text-decoration: none;	
+}
+
+.loginInput:focus 
+{
+	@include box-shadow(0 0 5px rgba(81, 203, 238, 1));
+	border: 1px solid #2e8fa0;
+}
+
+.sectionLogin {
+	width: 260px;
+	/*border-top: 1px solid #CFD38D;
+	border-top: 1px solid #D9D9D9;
+	border-bottom: 1px solid #D9D9D9;*/
+	margin: 25px 15px 15px 15px;
+	/*background-color: black;*/
+}
+
+.sectionHeaderContainer {
+	width: 100%;
+	margin: -12px 0 8px 10px;
+	/*background-color: black;*/
+}
+
+.sectionHeaderContainerDenied {
+	width: 100%;
+	margin: 0 0 0 0;
+	/*background-color: black;*/
+}
+
+.sectionHeaderDenied 
+{
+	padding: 0 3px 0 0px;		
+	font-family: 'Roboto', sans-serif;
+	font-size: 18px;
+	font-weight: normal;	
+	color: #ead1a0;
+}
+
+.sectionHeader 
+{
+	padding: 0 3px 0 3px;		
+	font-family: 'Roboto', sans-serif;
+	font-size: 18px;
+	font-weight: normal;	
+	color: #ead1a0;
+}
+
+.formRowLogin {	
+	width: 100%;
+	padding: 3px 0 0 10px;
+}
+
+.formLoginSubmitRow {
+	float: left;
+	width: 100px;
+	margin: 5px 0 0 79px;
+}
+
+.formLoginDeniedRow {
+	float: left;
+	width: 100px;
+	margin: 5px 0 15px 95px;
+}
+
+.logoutBtn
+{
+	@include transition(all 0.30s ease-in-out);
+	outline: none;
+	border: 1px solid #2e2e2e;
+	background-color: #232323;
+	width: 60px;
+	height: 26px;
+	font-family: 'Roboto', sans-serif;
+	color: #ead1a0;
+	font-size: 12px;
+	font-weight: normal;
+	text-decoration: none;
+	margin: 5px 0 5px 0;
+	padding: 5px 10px 5px 10px;
+	text-align: center;
+	cursor: pointer;
+}
+
+.logoutBtn:hover
+{
+	border: 1px solid #ead1a0;
+}
+
+a.logoutBtn  
+{
+	font-family: 'Roboto', sans-serif;
+	color: #ead1a0;
+	font-size: 12px;
+	font-weight: normal;
+}
+
+.loginInputLabelContainer {
+	float: left;
+	padding: 5px 0 2px 0;
+}
+
+.loginInput
+{
+
+}
+
+.submitBtn
+{
+	float: left;
+	@include transition(all 0.30s ease-in-out);
+	outline: none;
+	border: 1px solid #2e2e2e;
+	background-color: #232323;
+	width: 60px;
+	height: 27px;
+	font-family: 'Roboto', sans-serif;
+	color: #ead1a0;
+	font-size: 12px;
+	font-weight: normal;
+	text-decoration: none;
+	margin: 1px 0 0 6px;
+	padding: 2px 0 5px 0;
+	text-align: center;
+	cursor: pointer;
+}
+
+.submitBtn:hover
+{
+	border: 1px solid #ead1a0;
+}
+
+.loginErrorBlock 
+{
+	float: left;
+	border: 1px solid #cb2c4a;
+	background: #2f060f;
+	font-family: 'Roboto', sans-serif; 
+	font-size: 12px;
+    font-weight: normal;
+	color: #fff;
+	font-weight: bold;
+	padding: 8px;
+	margin: 10px 0 0 0;
+}
+
+
+
+
+/******************************************/
+/* ADDITIONAL LABEL STYLES                */
+/******************************************/
+.floatLeft
+{
+	float: left;
+}
+
+.gray
+{
+	color: #5d5d5d;
+}
+
+.h2Gray
+{
+	font-family: 'Roboto', sans-serif;
+	color: #5d5d5d;
+	font-size: 18px;
+	font-weight: bold;
+	margin: 0;
+	padding: 18px 0 0 10px;
+}
+
+.h1FloatLeft
+{
+	font-family: 'Roboto', sans-serif;
+	color: #ead1a0;
+	font-size: 22px;
+	font-weight: normal;
+	margin: 0;
+	padding: 14px 0 0 20px;
+}
+
+.marginLeft20
+{
+	margin-left: 20px;
+}
+
+.marginTop20
+{
+	margin-top: 20px;
+}
+
+.marginTop10
+{
+	margin-top: 10px;
+}
+
+.spacer10
+{
+	width: 10px;
+}
+
+
+
+
+/******************************************/
+/* JGAUGE                                 */
+/******************************************/
+div.jgauge p.tick-label
+{
+	font-family: 'Roboto', sans-serif;
+	font-size: 12px;
+	font-weight: normal;
+	color: #fff;
+	fill: #fff;
+}
+
+strong
+{
+	font-family: 'Roboto', sans-serif;
+	font-size: 15px;
+	font-weight: normal;
+	color: #fff;
+	fill: #fff;
+}
+
+p.label
+{
+	font-family: 'Roboto', sans-serif;
+	font-size: 14px;
+	font-weight: normal;
+	color: #fff;
+	fill: #fff;
+}
+
+.bullet .range.s0 
+{
+	fill: #484848; 
+}
+/*.bullet .range.s1 { fill: green; }
+.bullet .range.s2 { fill: green; }*/
+.bullet .measure.s0 { fill: #395356; }
+.bullet .measure.s1 { fill: #89c7ce; }
+/*.bullet .tick line { stroke: #ead1a0; stroke-width: .5px; color:red; }*/
+.bullet .marker { stroke: #ead1a0; stroke-width: 2px; color:red; }
+/*.bullet { font: 10px sans-serif; color:red; }
+.bullet .title { font-size: 14px; font-weight: bold; color:#fff; }
+.bullet .subtitle { fill: red; color:red; }*/
+
+
+
+
+
+
+
+/******************************************/
+/* JQUERY UI DIALOG CONTROL (e.g.) STYLES */
+/******************************************/
+.ui-widget-overlay
+{
+	background-image: url('../../assets/images/clear.gif');
+	background-repeat: repeat; 
+	
+	background-color: #000000;
+	opacity: .40;
+	filter: alpha(opacity=40); /* For IE8 and earlier */
+}
+
+
+/*** dialog container background ***/
+.ui-widget-content 
+{ 
+	background-image: url('../../assets/images/clear.gif');
+	background-repeat: repeat; 
+	
+	background-color: #1c1c1c;
+	opacity: .97;
+	filter: alpha(opacity=97); /* For IE8 and earlier */
+	
+	-moz-border-radius: 0;
+	border-radius: 0;
+	
+	border: none;
+	
+    -moz-background-clip: border;     /* Firefox 3.6 */
+    -webkit-background-clip: border;  /* Safari 4? Chrome 6? */
+    background-clip: border-box;      /* Firefox 4, Safari 5, Opera 10, IE 9 */
+
+    -moz-background-clip: padding;     /* Firefox 3.6 */
+    -webkit-background-clip: padding;  /* Safari 4? Chrome 6? */
+    background-clip: padding-box;      /* Firefox 4, Safari 5, Opera 10, IE 9 */
+	
+	color: #ffffff; 
+}
+
+/*** dialog header background ***/
+.ui-dialog 
+{
+	border: 1px solid rgba(255, 255, 255, 0.2);
+	position: absolute;
+	top: 0;
+	left: 0;
+	padding: .2em;
+	outline: 0;
+}
+
+/*** dialog header background ***/
+.ui-dialog .ui-dialog-titlebar 
+{	
+	/* set to transparent*/	
+	background-color: rgba(255, 255, 255, 0.0);
+	border-top: 1px solid rgba(255, 255, 255, 0.0);
+	border-right: 1px solid rgba(255, 255, 255, 0.0);
+	border-left: 1px solid rgba(255, 255, 255, 0.0);
+	border-bottom: 1px solid rgba(255, 255, 255, 0.20);
+	
+	-moz-background-clip: border;     /* Firefox 3.6 */
+    -webkit-background-clip: border;  /* Safari 4? Chrome 6? */
+    background-clip: border-box;      /* Firefox 4, Safari 5, Opera 10, IE 9 */
+
+    -moz-background-clip: padding;     /* Firefox 3.6 */
+    -webkit-background-clip: padding;  /* Safari 4? Chrome 6? */
+    background-clip: padding-box;      /* Firefox 4, Safari 5, Opera 10, IE 9 */
+	
+	border-radius: 0px;
+	
+	margin: 0 16px 0 16px;
+	padding: 13px 17px 13px 0;
+	
+	xbackground-color: red;
+}
+
+/*** dialog header label ***/
+.ui-dialog .ui-dialog-title 
+{
+	font-family: 'Roboto', sans-serif;
+	font-size: 16px;
+	font-weight: normal;
+	color: #e2cbac;
+}
+
+/*** dialog close button background ***/
+.ui-dialog .ui-dialog-titlebar-close 
+{
+
+	position: absolute;
+	right: 16px;
+	top: 16px;
+	width: 21px;
+	margin: -10px 0 0 0;
+	padding: 1px;
+	height: 20px;
+		
+	/* set to transparent*/
+	background-image: url('../../assets/images/clear.gif');
+	background-repeat: repeat;	
+	background-color: rgba(28, 28, 28, 0.0);
+	
+	border: 1px solid rgba(255, 255, 255, 0.2);
+	border-radius: 0;
+	
+	-moz-background-clip: border;     /* Firefox 3.6 */
+    -webkit-background-clip: border;  /* Safari 4? Chrome 6? */
+    background-clip: border-box;      /* Firefox 4, Safari 5, Opera 10, IE 9 */
+
+    -moz-background-clip: padding;     /* Firefox 3.6 */
+    -webkit-background-clip: padding;  /* Safari 4? Chrome 6? */
+    background-clip: padding-box;      /* Firefox 4, Safari 5, Opera 10, IE 9 */
+}
+
+
+/*** dialog bottom bar background ***/
+.ui-dialog .ui-dialog-buttonpane 
+{
+	text-align: left;
+	border-width: 1px 0 0 0;
+	background-image: none;
+	margin: 2px 16px 2px 16px;
+	padding: 0 0 1px 0;
+	
+	border-top: 1px solid rgba(255, 255, 255, 0.2);
+	
+	-moz-background-clip: border;     /* Firefox 3.6 */
+    -webkit-background-clip: border;  /* Safari 4? Chrome 6? */
+    background-clip: border-box;      /* Firefox 4, Safari 5, Opera 10, IE 9 */
+
+    -moz-background-clip: padding;     /* Firefox 3.6 */
+    -webkit-background-clip: padding;  /* Safari 4? Chrome 6? */
+    background-clip: padding-box;      /* Firefox 4, Safari 5, Opera 10, IE 9 */
+}
+
+/*** dialog content area ***/
+.ui-dialog .ui-dialog-content 
+{		
+	height: 200px;
+	overflow: auto;
+	
+	font-family: 'Roboto', sans-serif;
+	font-size: 12px;
+	font-weight: normal;
+	color: #ffffff;
+	
+	margin: 0 16px 0 16px;
+	padding: 18px 6px 18px 6px;
+	
+	xbackground-color: yellow;
+}
+
+.ui-dialog .ui-dialog-titlebar-close 
+{
+	visibility: hidden;
+}
+	
+.ui-widget-header 
+{ 
+	border: 1px solid #e78f08;
+	color: #ffffff; 
+	font-weight: bold; 
+}
+.ui-dialog .ui-dialog-buttonpane .ui-dialog-buttonset 
+{
+	float: left;
+}
+
+.ui-dialog .ui-dialog-buttonpane button 
+{
+	cursor: pointer;
+	margin: 8px 16px 4px 0;	
+	padding: 10px 14px;
+	
+	/* set to transparent*/
+	background-image: url('../../assets/images/clear.gif');
+	background-repeat: repeat;	
+	background-color: rgba(28, 28, 28, 0.0);
+	
+	border: 1px solid rgba(255, 255, 255, 0.2);
+	border-radius: 0;
+	
+	-moz-background-clip: border;     /* Firefox 3.6 */
+    -webkit-background-clip: border;  /* Safari 4? Chrome 6? */
+    background-clip: border-box;      /* Firefox 4, Safari 5, Opera 10, IE 9 */
+
+    -moz-background-clip: padding;     /* Firefox 3.6 */
+    -webkit-background-clip: padding;  /* Safari 4? Chrome 6? */
+    background-clip: padding-box;      /* Firefox 4, Safari 5, Opera 10, IE 9 */
+	
+	font-family: 'Roboto', sans-serif;
+	font-size: 12px;
+	font-weight: normal;
+	color: #ffffff;
+}
+
+.ui-dialog .ui-dialog-buttonpane button:hover 
+{
+	border: 1px solid #ffffff;
+	color: #ffffff;
+}
+
+#agentServiceStatusContainer b
+{
+	font-weight: normal;
+}
+
+/*** dialog button text ***/
+.ui-button-text-only .ui-button-text 
+{
+	padding: 0;
+}
+
+
+.ui-datepicker
+{
+	background-color: #181818;
+	color: #ffffff;
+}
+
+.ui-datepicker-calendar td 
+{
+	background-color: #181818;
+	color: #ffffff;
+}
+
+.ui-state-default
+{
+	background-image: url('../../assets/images/clear.gif');
+}
+
+.brush .extent 
+{
+	stroke: #fff;
+	fill-opacity: .125;
+	shape-rendering: crispEdges;
+}
+
+.axis path, .axis line 
+{
+	fill: none;
+	stroke: #484848;
+	shape-rendering: crispEdges;
+}
+
+
+
+/******************************************/
+/* SLICK GRID                             */
+/******************************************/
+.slick-header-columns.ui-sortable
+{
+	background-color: transparent !important;
+	background-image: url('../../assets/images/clear.gif');
+	background-repeat: repeat;
+}
+
+/*** column label ***/
+.slick-column-name
+{
+	font-family: 'Roboto', sans-serif;
+	font-weight: bold;
+	font-size: 12px;
+	color: red
+	opacity: 1;
+	filter: alpha(opacity=100); /* For IE8 and earlier */
+}
+
+/*** column header ***/
+.slick-header-column.ui-state-default
+{
+	/* to handle border transparency */	
+	padding: 7px 0 7px 10px;
+	
+	background-color: transparent;
+	background-image: url('../../assets/images/clear.gif');
+	background-repeat: repeat;
+	
+	border-top: 1px solid rgba(255, 255, 255, 0.2);
+	border-right: none;
+	border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+	
+    -moz-background-clip: border;     /* Firefox 3.6 */
+    -webkit-background-clip: border;  /* Safari 4? Chrome 6? */
+    background-clip: border-box;      /* Firefox 4, Safari 5, Opera 10, IE 9 */
+
+    -moz-background-clip: padding;     /* Firefox 3.6 */
+    -webkit-background-clip: padding;  /* Safari 4? Chrome 6? */
+    background-clip: padding-box;      /* Firefox 4, Safari 5, Opera 10, IE 9 */
+	
+}
+
+/*** cell ***/
+.slick-cell
+{
+	padding: 5px 0 0 10px;
+	font-family: 'Roboto', sans-serif;
+	font-weight: normal;
+	font-size: 12px;
+	color: #ffffff;
+	
+	/* to handle border transparency */		
+	border-right: none;
+	border-left: none;
+	border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+	
+	background-image: url('../../assets/images/clear.gif');
+	background-repeat: repeat;
+	background-color: transparent;
+}
+
+.slick-row
+{ 
+	background-color: transparent;
+}
+
+.slick-row:hover 
+{ 
+	background-color: rgba(255, 255, 255, 0.1);
+}
+
+.load-hi 
+{   
+	font-family: 'Roboto', sans-serif; 
+	font-size: 12px;
+    font-weight: normal;
+	color: #f02b22;
+}
+
+.load-medium 
+{
+	font-family: 'Roboto', sans-serif; 
+	font-size: 13px;
+    font-weight: normal;
+	color: #ff8c1b;
+}
+
+.load-success 
+{   
+	font-family: 'Roboto', sans-serif; 
+	font-size: 13px;
+    font-weight: normal;
+	color: #aeb819;
+}
+
+.changed 
+{
+	background-color: #2e2e2e;
+}
+
+.current-server 
+{
+    border: 1px solid black;
+    background: orange;
+}
+ 
+
+
+
+/******************************************/
+/* SLICK GRID CONTEXT MENU STYLES		  */
+/******************************************/
+.contextMenu
+{
+	background: #1c1c1c;
+	opacity: .97;
+	filter: alpha(opacity=97); /* For IE8 and earlier */
+	
+	border: 1px solid rgba(255, 255, 255, 0.2);
+	
+    -moz-background-clip: border;     /* Firefox 3.6 */
+    -webkit-background-clip: border;  /* Safari 4? Chrome 6? */
+    background-clip: border-box;      /* Firefox 4, Safari 5, Opera 10, IE 9 */
+
+    -moz-background-clip: padding;     /* Firefox 3.6 */
+    -webkit-background-clip: padding;  /* Safari 4? Chrome 6? */
+    background-clip: padding-box;      /* Firefox 4, Safari 5, Opera 10, IE 9 */
+	
+	font-family: 'Roboto', sans-serif;
+	color: #7d7d7d;
+	font-size:12px;
+		
+	padding: 2px;
+	display: inline-block;
+	min-width: 100px;
+	
+	z-index: 99999;
+}
+
+.contextMenu li 
+{
+	padding: 4px 10px 4px 10px;
+	list-style: none;
+	cursor: pointer;
+	
+	border: 1px solid rgba(255, 255, 255, 0.0);
+	
+    -moz-background-clip: border;     /* Firefox 3.6 */
+    -webkit-background-clip: border;  /* Safari 4? Chrome 6? */
+    background-clip: border-box;      /* Firefox 4, Safari 5, Opera 10, IE 9 */
+
+    -moz-background-clip: padding;     /* Firefox 3.6 */
+    -webkit-background-clip: padding;  /* Safari 4? Chrome 6? */
+    background-clip: padding-box;      /* Firefox 4, Safari 5, Opera 10, IE 9 */
+}
+
+.contextMenu li:hover 
+{
+	background-color: #1c1c1c;	
+	opacity: .97;
+	filter: alpha(opacity=97); /* For IE8 and earlier */
+	
+	border: 1px solid rgba(255, 255, 255, 0.7);
+	
+    -moz-background-clip: border;     /* Firefox 3.6 */
+    -webkit-background-clip: border;  /* Safari 4? Chrome 6? */
+    background-clip: border-box;      /* Firefox 4, Safari 5, Opera 10, IE 9 */
+
+    -moz-background-clip: padding;     /* Firefox 3.6 */
+    -webkit-background-clip: padding;  /* Safari 4? Chrome 6? */
+    background-clip: padding-box;      /* Firefox 4, Safari 5, Opera 10, IE 9 */
+	
+	color: #ffffff;
+}
+
+
+
+
+/******************************************/
+/* SVG / jQuery D3 Styles                 */
+/******************************************/
+line.link 
+{
+	fill: none;
+	stroke: #ffffff;
+	stroke-width: 1px;
+	opacity: .40;
+	filter: alpha(opacity=40); /* For IE8 and earlier */
+}
+
+text
+{
+	font-family: 'Roboto', sans-serif; 
+	font-size: 12px;
+    font-weight: normal;
+	color: #ffffff;
+	fill: #fff;	
+}
+
+circle
+{
+	text-align: center;
+	fill: #256479;
+	stroke-width: 2px;
+	stroke: #46b2c5;
+}
+
+.nodeDeployment
+{
+	fill: #763d7d;
+	stroke-width: 3px;
+	stroke: #955f9c;	
+}
+
+.nodeCloud
+{
+	fill: #1c7e9f;
+	stroke-width: 3px;
+	stroke: #4aa7c6;
+}
+
+.nodeHealthy
+{
+	fill: #868c2b;
+	stroke-width: 3px;
+	stroke: #a9ad6f;
+}
+
+.nodeProblem
+{
+    fill: #921d3e;
+	stroke-width: 3px;
+	stroke: #b94767;
+}
+
+.nodeSick
+{
+    fill: #921d3e;
+	stroke-width: 3px;
+	stroke: #b94767;
+}
+
+.nodeType
+{
+	font-family: 'Roboto', sans-serif; 
+	font-size: 11px;
+    font-weight: normal;
+	font-style: italic;
+	color: #ffffff;
+	fill: #ffffff;
+	opacity: .60;
+	filter: alpha(opacity=60); /* For IE8 and earlier */
+}
+
+path {
+	fill: #07242c;
+	stroke-width: 2px;
+	stroke: #229ea6;
+}
+
+
+
+
+/******************************************/
+/* CPU UTILIZATION HISTORY                */
+/******************************************/
+#cpuUtilizationHistoryContainer
+{
+	float: left;
+	width: 460px;
+	margin: 0 10px 0 0;
+	padding: 0;
+	xborder: 1px solid yellow;
+}
+
+#cpuUtilizationContainer
+{
+	float: left;
+	width: 460px;
+	margin: 0 10px 0 0;
+	padding: 0;
+	xborder: 1px solid pink;
+}
+
+#cpuUtilDateRangeContainer
+{
+	float: left;
+	padding: 10px 5px 10px 20px;
+}
+
+.cpuUtilDateFromLabel
+{
+	float: left;
+	padding: 2px 6px 0 0;
+}
+
+.cpuUtilDateToLabel
+{
+	float: left;
+	padding: 2px 6px 0 12px;
+}
+
+#cpuUtilHistorySubmitButton
+{
+	float: left;
+	@include transition(all 0.30s ease-in-out);
+	outline: none;
+	border: 1px solid #2e2e2e;
+	background-color: #232323;
+	width: 60px;
+	height: 16px;
+	font-family: 'Roboto', sans-serif;
+	color: #ead1a0;
+	font-size: 12px;
+	font-weight: normal;
+	text-decoration: none;
+	margin: 0 0 0 6px;
+	padding: 1px 0 1px 0;
+	text-align: center;
+	cursor: pointer;
+}
+
+#cpuUtilHistorySubmitButton:hover
+{
+	border: 1px solid #ead1a0;
+}
+
+#cpuAreaChart
+{
+	float: left;
+	xborder: 1px solid yellow;
+}
+
+#bulletChart
+{
+	padding: 60px 0 0 20px;
+}
+
+#cpuAreaChart text
+{
+	font-family: 'Roboto', sans-serif; 
+	font-size: 10px;
+    font-weight: normal;
+	color: #ffffff;
+	fill: #ffffff;	
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

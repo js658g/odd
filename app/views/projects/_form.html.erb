@@ -1,0 +1,56 @@
+<style>
+  .projects_roles
+  {
+    margin: 11px 0px 0 0px;
+
+  }
+  .field_with_errors {
+  @extend .control-group;
+  @extend .error;
+
+    display: inline-block;
+  }
+
+</style>
+<div class="tabNavContentContainer">
+<%= form_for(@project) do |f| %>
+  <% if @project.errors.any? %>
+    <div id="error_explanation">
+      <h3> Please check the following errors:</h3>
+      <!--<= pluralize(@users1.errors.count, "error") %>-->
+
+
+
+      <ul>
+      <% @project.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+      <div class="row-fluid inputContainer">
+<p>
+    <%= f.label :project_name %>
+    <%= f.text_field :project_name %>
+</p>
+  </div>
+
+      <div class="row-fluid inputContainer">
+        <p>
+    <%= f.label :project_description %>
+    <%= f.text_field :project_description %>
+        </p>
+  </div>
+      <div class="row-fluid inputContainer">
+        <p>
+    <%= f.label :reusable %>
+    <%= f.check_box :reusable %>
+        </p>
+  </div>
+    <div class="row-fluid inputContainer">
+      <%= f.submit 'SUBMIT', class: "odd_button" %>&nbsp;&nbsp;&nbsp; 
+      <%= f.submit 'CLEAR', class: "odd_button", :type => 'reset' %> 
+    </div>
+<% end %>
+</div>

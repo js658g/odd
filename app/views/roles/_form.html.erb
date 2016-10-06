@@ -1,0 +1,62 @@
+<style>
+  .projects_roles
+  {
+    margin: 11px 0px 0 0px;
+
+  }
+  .field_with_errors {
+  @extend .control-group;
+  @extend .error;
+
+    display: inline-block;
+  }
+
+</style>
+<div class="tabNavContentContainer">
+  <%= form_for(@role) do |f| %>
+      <% if @role.errors.any? %>
+          <div id="error_explanation">
+            <h3> Please check the following errors:</h3>
+            <!--<= pluralize(@users1.errors.count, "error") %>-->
+            <ul>
+              <% @role.errors.full_messages.each do |msg| %>
+                  <li><%= msg %></li>
+              <% end %>
+            </ul>
+          </div>
+      <% end %>
+      <div class="row-fluid inputContainer">
+        <p>
+
+          <%= f.label :role_name, "Role Name" %>
+          <%= f.text_field :role_name %>
+          <!--<= show_field_error(@role, :role_name) %>-->
+        </p>
+      </div>
+      <div class="row-fluid inputContainer">
+        <p>
+          <%= f.label :description, "Description" %>
+          <%= f.text_field :role_description %>
+          <%= show_field_error(@role, :role_description) %>
+        </p>
+      </div>
+      <div class="row-fluid inputContainer">
+        <p>
+          <%= f.label :available_privileges, "Available Privileges" %>
+          <%= select_tag(:privileges, options_for_select([["Studio Read", "Studio Read"],["Studio Write", "Studio Write"],["Studio Execute", "Studio Execute"],["Monitor Read", "Monitor Read"],["Monitor Execute", "Monitor Execute"],["Metaview Read", "Metaview Read"],["Metaview Write", "Metaview Write"]]), {:multiple => true, size:7}) %>
+        </p>
+      </div>
+      <div class="row-fluid inputContainer">
+        <!--<p>-->
+        <!--f.submit 'Submit', class: "btn btn-primary" %>&nbsp;&nbsp;&nbsp; -->
+        <!--f.submit 'Clear Form', :type => 'reset', class: "btn btn-primary" %> -->
+        <!--</p>-->
+        <div class="row-fluid inputContainer">
+          <%= f.submit 'SUBMIT', class: "odd_button" %>&nbsp;&nbsp;&nbsp; 
+          <%= f.submit 'CLEAR', class: "odd_button", :type => 'reset' %> 
+        </div>
+
+      </div>
+  <% end %>
+
+</div>

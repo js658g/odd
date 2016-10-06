@@ -1,0 +1,38 @@
+<B>Storage Configuration</B>
+<%= form_for @storage, :as => :storages, :url => storage_configuration_path do |f| %>
+
+    <p>
+      <%= f.label :storage_id, "Storage Id" %>
+      <%= f.text_field :storage_id %>
+      <%= show_field_error(@storage, :storage_id) %>
+    </p>
+
+    <p>
+      <%= f.label :storage_type, "Storage Type" %>
+      <%= f.text_field :storage_type %>
+      <%= show_field_error(@storage, :storage_type) %>
+    </p>
+
+    <p>
+      <%= f.label :storage_name, "Storage Name" %>
+      <%= f.text_field :storage_name %>
+      <%= show_field_error(@storage, :storage_name) %>
+    </p>
+
+    <p>
+      <%= f.label :cloud_master, "Cloud Master" %>
+      <%= f.text_field :cloud_master %>
+      <%= show_field_error(@storage, :cloud_master) %>
+    </p>
+
+    <p>
+      <%= f.label :primary_repository, "Primary Repository" %>
+      <%= f.text_field :primary_repository %>
+      <%= show_field_error(@storage,:primary_repository) %>
+    </p>
+
+    <p>
+      <%= f.submit 'Submit' %>&nbsp;&nbsp;&nbsp;
+      <%= f.submit 'Clear Form', :type => 'reset' %>
+    </p>
+<% end %>

@@ -1,0 +1,15 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+one:
+  storage_id: MyString
+  storage_name: MyString
+  storage_type: MyString
+  cloud_master: MyString
+  primary_repository: 1
+
+two:
+  storage_id: MyString
+  storage_name: MyString
+  storage_type: MyString
+  cloud_master: MyString
+  primary_repository: 1

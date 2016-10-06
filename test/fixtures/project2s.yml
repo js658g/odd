@@ -1,0 +1,13 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+one:
+  project_description: MyString
+  project_name: MyString
+  reusable: MyString
+  users1s_id: 1
+
+two:
+  project_description: MyString
+  project_name: MyString
+  reusable: MyString
+  users1s_id: 1

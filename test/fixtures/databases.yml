@@ -1,0 +1,29 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+one:
+  database_id: MyString
+  name: MyString
+  JDBC_URL: MyString
+  db_type: MyString
+  datacenter_location: MyString
+  server_host: MyString
+  server_login: MyString
+  server_password: MyString
+  db_name: MyString
+  db_login: MyString
+  string: MyString
+  db_password: MyString
+
+two:
+  database_id: MyString
+  name: MyString
+  JDBC_URL: MyString
+  db_type: MyString
+  datacenter_location: MyString
+  server_host: MyString
+  server_login: MyString
+  server_password: MyString
+  db_name: MyString
+  db_login: MyString
+  string: MyString
+  db_password: MyString

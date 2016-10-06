@@ -1,0 +1,90 @@
+<%= stylesheet_link_tag    "login", :media => "all" %>
+<%= stylesheet_link_tag "font-awesome.min.css", :media => "all" %>
+<%= stylesheet_link_tag "http://netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css" %>
+
+<div class="login">
+  <div id="oddlogincontainer" class="container"></div>
+  <div id="oddloginform" class="simple_form login-form">
+    <%= form_for(:session, url: login_path) do |f| %>
+
+        <div class="content">
+          <div class="logo"></div>
+          <div class="divider"></div>
+
+          <% provide(:title, "Log In") %>
+          <div class="inputs">
+            <div class="input-container">
+              <i class="icon-user"></i>
+              <!--<= f.text_field :username, class: 'inputlogin', :size=>"50" %>-->
+              <%= f.label :username %>
+              <%= f.text_field :username, class: 'inputlogin', :size=>"50" %>
+            </div>
+            <div class="input-container">
+              <i class="icon-key"></i>
+              <%= f.label :password %>
+              <!--<= f.text_field :username, class: 'form-control' %>-->
+              <%= f.password_field :password, class: 'inputlogin', :size=>"50"  %>
+            </div>
+
+            <% if !flash.empty? %>
+            <div class="login-error">
+                <div class="icon">
+                  <i class="icon-frown"></i>
+                </div>
+
+              <div class="copy">
+                <% flash.each do |name, msg| %>
+                    <%= content_tag :div, msg, :id => "flash_#{name}" %>
+                <% end %>
+              </div>
+            </div>
+            <% end %>
+
+
+            </div>
+          <div class="divider"></div>
+        </div>
+        <% if !flash.empty? %>
+          <div class="button-container1">
+            <% else %>
+            <div class="button-container-9">
+            <% end %>
+            <div class="lockbox">
+              <i class="icon-lock"></i>
+            </div>
+            <%= f.submit "Log In", class: "submit_loginpage" do %>
+            <% end %>
+          </div>
+
+
+
+        </div>
+    <% end %>
+  </div>
+</div>
+<div>
+  <div id="copyrightInfo">
+
+    <div id="copyrightText">
+      Copyright &copy; 2016 NYSE Group, Inc., All rights reserved.  <br/><br/>
+    </div>
+
+  </div>
+
+  <div id="copyrightInfoDetailsContainer">
+
+    <div id="copyrightInfoDetails">
+      <div class="copyrightHeader">Copyright</div>
+      Copyright &copy; 2016 NYSE Group, Inc.,
+      licensed to GoPivotal, Inc. by NYSE Market, Inc. (a wholly owned subsidiary of NYSE Group, Inc.).
+      All rights reserved.<br/><br/>
+      GoPivotal, Inc. believes the information in this publication is accurate as of its publication date. The information is subject to change without notice. THE INFORMATION IN THIS PUBLICATION IS PROVIDED "AS IS." NEITHER GOPIVOTAL, INC. ("Pivotal") NOR ANY OF ITS LICENSORS MAKE ANY REPRESENTATIONS OR WARRANTIES OF ANY KIND WITH RESPECT TO THE INFORMATION IN THIS PUBLICATION, AND SPECIFICALLY DISCLAIM IMPLIED WARRANTIES OF MERCHANTABILITY OR FITNESS FOR A PARTICULAR PURPOSE.<br/><br/>
+      Use, copying, and distribution of any software described in this publication requires an applicable software license.<br/><br/>
+      All trademarks used herein are the property of Pivotal or their respective owners.<br/><br/>
+      <%= link_to "CLOSE", "javascript:onclick=showCopyrightText(false)" %>
+    </div>
+
+  </div>
+
+</div>
+
